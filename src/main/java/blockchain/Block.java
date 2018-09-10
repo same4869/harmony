@@ -15,8 +15,9 @@ public class Block {
     private String data; //区块数据
     private String prevBlockHash; //上一个区块的hash
     private String hash; //当前区块hash
+    private long nonce; //挖矿的nonce值
 
-    private Block(long timestamp, String data, String prevBlockHash, String hash) {
+    public Block(long timestamp, String data, String prevBlockHash, String hash) {
         this.timestamp = timestamp;
         this.data = data;
         this.prevBlockHash = prevBlockHash;
@@ -28,7 +29,7 @@ public class Block {
      * <p>
      * 注意：在准备区块数据时，一定要从原始数据类型转化为byte[]，不能直接从字符串进行转换
      */
-    private void setHash() {
+    public void setHash() {
         byte[] prevBlockHashBytes = {};
         if (this.getPrevBlockHash() != null) {
             prevBlockHashBytes = new BigInteger(this.getPrevBlockHash(), 16).toByteArray();
@@ -44,7 +45,10 @@ public class Block {
 
     public static Block newBlock(String data, String prevBlockHash) {
         Block block = new Block(System.currentTimeMillis(), data, prevBlockHash, null);
-        block.setHash();
+        ProofOfWork pow = ProofOfWork.newProofOfWork(block);
+        PowResult powResult = pow.run();
+        block.setHash(powResult.getShaHex());
+        block.setNonce(powResult.getNonce());
         return block;
     }
 }

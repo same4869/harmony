@@ -33,6 +33,8 @@ public class BlockChain {
     public static Block newGenesisBlock() {
         blockList = new LinkedList<>();
         Block block = Block.newBlock("I am Genesis Block", "0000000000000000");
+//        Block block = new Block(System.currentTimeMillis(), "I am Genesis Block", "0000000000000000", null);
+//        block.setHash();
         blockList.add(block);
         return block;
     }

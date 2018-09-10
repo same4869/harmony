@@ -1,5 +1,12 @@
 package blockchain.utils;
 
+
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.nio.ByteBuffer;
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public class ByteUtil {
 
     /**
@@ -27,11 +34,18 @@ public class ByteUtil {
      * long类型转成byte数组
      */
     public static byte[] longToByte(long number) {
-        long temp = number;
-        byte[] b = new byte[8];
+        return ByteBuffer.allocate(Long.BYTES).putLong(number).array();
+    }
+
+    /**
+     * int到字节数组的转换.
+     */
+    public static byte[] intToByte(int number) {
+        int temp = number;
+        byte[] b = new byte[4];
         for (int i = 0; i < b.length; i++) {
-            b[i] = new Long(temp & 0xff).byteValue();// 将最低位保存在最低位 temp = temp
-            // >> 8;// 向右移8位
+            b[i] = new Integer(temp & 0xff).byteValue();// 将最低位保存在最低位
+            temp = temp >> 8;// 向右移8位
         }
         return b;
     }
@@ -43,4 +57,19 @@ public class ByteUtil {
         String str = new String(byteArray);
         return str;
     }
+
+    /**
+     * 将多个字节数组合并成一个字节数组
+     *
+     * @param bytes
+     * @return
+     */
+    public static byte[] merge(byte[]... bytes) {
+        Stream<Byte> stream = Stream.of();
+        for (byte[] b : bytes) {
+            stream = Stream.concat(stream, Arrays.stream(ArrayUtils.toObject(b)));
+        }
+        return ArrayUtils.toPrimitive(stream.toArray(Byte[]::new));
+    }
+
 }
