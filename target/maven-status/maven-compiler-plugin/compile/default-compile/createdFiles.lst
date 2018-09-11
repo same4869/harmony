@@ -1,0 +1,3 @@
+blockchain/transaction/Transaction.class
+blockchain/transaction/TXOutput.class
+blockchain/transaction/TXInput.class

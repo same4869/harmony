@@ -2,53 +2,37 @@ package blockchain;
 
 import blockchain.pow.PowResult;
 import blockchain.pow.ProofOfWork;
+import blockchain.transaction.Transaction;
 import blockchain.utils.ByteUtil;
-import blockchain.utils.SHA256Util;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.apache.commons.codec.digest.DigestUtils;
 
-import java.math.BigInteger;
 
 /**
  * 区块结构
  */
 @Data
+@NoArgsConstructor
 public class Block {
     private long timestamp; //时间戳
-    private String data; //区块数据
+    /**
+     * 交易信息
+     */
+    private Transaction[] transactions;
     private String prevBlockHash; //上一个区块的hash
     private String hash; //当前区块hash
     private long nonce; //挖矿的nonce值
 
-    public Block(){}
-
-    public Block(long timestamp, String data, String prevBlockHash, String hash) {
+    public Block(long timestamp, Transaction[] transactions, String prevBlockHash, String hash) {
         this.timestamp = timestamp;
-        this.data = data;
+        this.transactions = transactions;
         this.prevBlockHash = prevBlockHash;
         this.hash = hash;
     }
 
-    /**
-     * 计算区块Hash
-     * <p>
-     * 注意：在准备区块数据时，一定要从原始数据类型转化为byte[]，不能直接从字符串进行转换
-     */
-    public void setHash() {
-        byte[] prevBlockHashBytes = {};
-        if (this.getPrevBlockHash() != null) {
-            prevBlockHashBytes = new BigInteger(this.getPrevBlockHash(), 16).toByteArray();
-        }
-
-        byte[] headers = ByteUtil.byteMergerAll(
-                prevBlockHashBytes,
-                this.getData().getBytes(),
-                ByteUtil.longToByte(this.getTimestamp()));
-
-        this.setHash(SHA256Util.getSHA256StrJava(ByteUtil.byteArrayToStr(headers)));
-    }
-
-    public static Block newBlock(String data, String prevBlockHash) {
-        Block block = new Block(System.currentTimeMillis(), data, prevBlockHash, null);
+    public static Block newBlock(Transaction[] transactions, String prevBlockHash) {
+        Block block = new Block(System.currentTimeMillis(), transactions, prevBlockHash, null);
         ProofOfWork pow = ProofOfWork.newProofOfWork(block);
         PowResult powResult = pow.run();
         block.setHash(powResult.getShaHex());
@@ -56,7 +40,20 @@ public class Block {
         return block;
     }
 
-    public static Block newGenesisBlock(){
-        return Block.newBlock("I am Genesis Block", ByteUtil.ZERO_HASH);
+    public static Block newGenesisBlock(Transaction coinbase){
+        return Block.newBlock(new Transaction[]{coinbase}, ByteUtil.ZERO_HASH);
+    }
+
+    /**
+     * 对区块中的交易信息进行Hash计算
+     *
+     * @return
+     */
+    public byte[] hashTransaction() {
+        byte[][] txIdArrays = new byte[this.getTransactions().length][];
+        for (int i = 0; i < this.getTransactions().length; i++) {
+            txIdArrays[i] = this.getTransactions()[i].getTxId();
+        }
+        return DigestUtils.sha256(ByteUtil.merge(txIdArrays));
     }
 }

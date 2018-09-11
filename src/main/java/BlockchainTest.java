@@ -38,16 +38,16 @@ public class BlockchainTest {
 //            LogUtil.d("Pow valid: " + pow.validate() + "\n");
 //        }
 
-        BlockChain blockChain = BlockChain.newBlockchain();
-        try {
-            blockChain.addBlock("Send 1 BTC to Ivan");
-            blockChain.addBlock("Send 2 BTC to kkkk");
-            blockChain.addBlock("Send 3 BTC to yyyyy");
-
-            blockChain.getBlockchainIterator().printBlockChain(blockChain);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        BlockChain blockChain = BlockChain.newBlockchain();
+//        try {
+//            blockChain.addBlock("Send 1 BTC to Ivan");
+//            blockChain.addBlock("Send 2 BTC to kkkk");
+//            blockChain.addBlock("Send 3 BTC to yyyyy");
+//
+//            blockChain.getBlockchainIterator().printBlockChain(blockChain);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
     }
 

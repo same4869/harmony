@@ -3,8 +3,13 @@ package blockchain.cli;
 import blockchain.Block;
 import blockchain.BlockChain;
 import blockchain.pow.ProofOfWork;
+import blockchain.transaction.TXOutput;
+import blockchain.transaction.Transaction;
+import blockchain.utils.LogUtil;
 import blockchain.utils.RocksDBUtil;
 import org.apache.commons.cli.*;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 /**
  * 命令行解析类
@@ -15,9 +20,19 @@ public class CLI {
 
     public CLI(String[] args) {
         this.args = args;
-        options.addOption("h", "help", false, "show help");
-        options.addOption("add", "addblock", true, "add a block to the blockchain");
-        options.addOption("print", "printchain", false, "print all the blocks of the blockchain");
+
+        Option helpCmd = Option.builder("h").desc("show help").build();
+        options.addOption(helpCmd);
+
+        Option address = Option.builder("address").hasArg(true).desc("Source wallet address").build();
+        Option sendFrom = Option.builder("from").hasArg(true).desc("Source wallet address").build();
+        Option sendTo = Option.builder("to").hasArg(true).desc("Destination wallet address").build();
+        Option sendAmount = Option.builder("amount").hasArg(true).desc("Amount to send").build();
+
+        options.addOption(address);
+        options.addOption(sendFrom);
+        options.addOption(sendTo);
+        options.addOption(sendAmount);
     }
 
     /**
@@ -28,22 +43,56 @@ public class CLI {
         try {
             CommandLineParser parser = new DefaultParser();
             CommandLine cmd = parser.parse(options, args);
-
-            if (cmd.hasOption("h")) {
-                help();
-            }
-            if (cmd.hasOption("add")) {
-                String data = cmd.getOptionValue("add");
-                addBlock(data);
-            }
-            if (cmd.hasOption("print")) {
-                printChain();
+            switch (args[0]) {
+                case "createblockchain":
+                    String createblockchainAddress = cmd.getOptionValue("address");
+                    if (StringUtils.isBlank(createblockchainAddress)) {
+                        help();
+                    }
+                    this.createBlockchain(createblockchainAddress);
+                    break;
+                case "getbalance":
+                    String getBalanceAddress = cmd.getOptionValue("address");
+                    if (StringUtils.isBlank(getBalanceAddress)) {
+                        help();
+                    }
+                    this.getBalance(getBalanceAddress);
+                    break;
+                case "send":
+                    String sendFrom = cmd.getOptionValue("from");
+                    String sendTo = cmd.getOptionValue("to");
+                    String sendAmount = cmd.getOptionValue("amount");
+                    if (StringUtils.isBlank(sendFrom) ||
+                            StringUtils.isBlank(sendTo) ||
+                            !NumberUtils.isDigits(sendAmount)) {
+                        help();
+                    }
+                    this.send(sendFrom, sendTo, Integer.valueOf(sendAmount));
+                    break;
+                case "printchain":
+                    this.printChain();
+                    break;
+                case "h":
+                    this.help();
+                    break;
+                default:
+                    this.help();
             }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             RocksDBUtil.getInstance().closeDB();
         }
+    }
+
+    /**
+     * 创建区块链
+     *
+     * @param address
+     */
+    private void createBlockchain(String address) throws Exception {
+        BlockChain.newBlockchain(address);
+        LogUtil.d("Done ! ");
     }
 
     /**
@@ -67,31 +116,49 @@ public class CLI {
     }
 
     /**
-     * 添加区块
-     *
-     * @param data
-     */
-    private void addBlock(String data) throws Exception {
-        BlockChain blockchain = BlockChain.newBlockchain();
-        blockchain.addBlock(data);
-    }
-
-    /**
      * 打印出区块链中的所有区块
      */
-    private void printChain() {
-        BlockChain blockchain = BlockChain.newBlockchain();
+    private void printChain() throws Exception {
+        BlockChain blockchain = BlockChain.initBlockchainFromDB();
         for (BlockChain.BlockchainIterator iterator = blockchain.getBlockchainIterator(); iterator.hashNext(); ) {
-            Block block = null;
-            try {
-                block = iterator.next();
-                if (block != null) {
-                    boolean validate = ProofOfWork.newProofOfWork(block).validate();
-                    System.out.println(block.toString() + ", validate = " + validate);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            Block block = iterator.next();
+            if (block != null) {
+                boolean validate = ProofOfWork.newProofOfWork(block).validate();
+                LogUtil.d(block.toString() + ", validate = " + validate);
             }
         }
     }
+
+    /**
+     * 查询钱包余额
+     *
+     * @param address 钱包地址
+     */
+    private void getBalance(String address) throws Exception {
+        BlockChain blockchain = BlockChain.newBlockchain(address);
+        TXOutput[] txOutputs = blockchain.findUTXO(address);
+        int balance = 0;
+        if (txOutputs != null && txOutputs.length > 0) {
+            for (TXOutput txOutput : txOutputs) {
+                balance += txOutput.getValue();
+            }
+        }
+        LogUtil.d("Balance of address:" + address + " balance:" + balance);
+    }
+
+    /**
+     * 转账
+     *
+     * @param from
+     * @param to
+     * @param amount
+     */
+    private void send(String from, String to, int amount) throws Exception {
+        BlockChain blockchain = BlockChain.newBlockchain(from);
+        Transaction transaction = Transaction.newUTXOTransaction(from, to, amount, blockchain);
+        blockchain.mineBlock(new Transaction[]{transaction});
+        RocksDBUtil.getInstance().closeDB();
+        System.out.println("Success!");
+    }
+
 }
