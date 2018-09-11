@@ -17,6 +17,8 @@ public class Block {
     private String hash; //当前区块hash
     private long nonce; //挖矿的nonce值
 
+    public Block(){}
+
     public Block(long timestamp, String data, String prevBlockHash, String hash) {
         this.timestamp = timestamp;
         this.data = data;
@@ -53,6 +55,6 @@ public class Block {
     }
 
     public static Block newGenesisBlock(){
-        return Block.newBlock("I am Genesis Block", "0000000000000000000000000000000000000000000000000000000000000000");
+        return Block.newBlock("I am Genesis Block", ByteUtil.ZERO_HASH);
     }
 }

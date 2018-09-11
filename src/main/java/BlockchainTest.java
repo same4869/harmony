@@ -2,6 +2,12 @@ import blockchain.Block;
 import blockchain.BlockChain;
 import blockchain.ProofOfWork;
 import blockchain.utils.LogUtil;
+import com.esotericsoftware.kryo.Kryo;
+
+import java.lang.reflect.InvocationHandler;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.GregorianCalendar;
 
 public class BlockchainTest {
 
@@ -45,6 +51,9 @@ public class BlockchainTest {
         try {
             blockChain.addBlock("Send 1 BTC to Ivan");
             blockChain.addBlock("Send 2 BTC to kkkk");
+            blockChain.addBlock("Send 3 BTC to yyyyy");
+
+            blockChain.getBlockchainIterator().printBlockChain(blockChain);
         } catch (Exception e) {
             e.printStackTrace();
         }

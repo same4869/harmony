@@ -1,6 +1,7 @@
 package blockchain.utils;
 
 
+import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.nio.ByteBuffer;
@@ -8,6 +9,7 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class ByteUtil {
+    public static final String ZERO_HASH = Hex.encodeHexString(new byte[32]);
 
     /**
      * 多个byte数组拼接成一个

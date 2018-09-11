@@ -25,10 +25,11 @@
             <artifactId>commons-codec</artifactId>
             <version>1.10</version>
         </dependency>
+        <!-- 对象序列化/反序列化框架 -->
         <dependency>
             <groupId>com.esotericsoftware</groupId>
-            <artifactId>kryo-shaded</artifactId>
-            <version>3.0.3</version>
+            <artifactId>kryo</artifactId>
+            <version>4.0.1</version>
         </dependency>
         <!-- rocksdb -->
         <dependency>

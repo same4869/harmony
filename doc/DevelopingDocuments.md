@@ -19,6 +19,17 @@ POW
 
 持久化
 
-- 新增RocksDBUtil类，数据库使用RocksDB
+- 新增序列化工具类SerializeUtil
+- 新增数据工具类RocksDBUtil，数据库使用RocksDB
 - 改造BlockChain类中方法
+
+####2018.9.11
+
+遍历打印区块链
+
+- BlockChain类中赠加迭代器内部类，增加遍历打印区块链方法
+
+
+#####参考文档
+https://wangwei.one/categories/blockchain/
 
