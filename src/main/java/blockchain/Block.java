@@ -1,5 +1,7 @@
 package blockchain;
 
+import blockchain.pow.PowResult;
+import blockchain.pow.ProofOfWork;
 import blockchain.utils.ByteUtil;
 import blockchain.utils.SHA256Util;
 import lombok.Data;

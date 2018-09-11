@@ -1,0 +1,12 @@
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/cli/CLI.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/cli/Main.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/BlockchainTest.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/utils/SerializeUtil.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/utils/SHA256Util.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/Block.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/utils/LogUtil.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/pow/ProofOfWork.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/utils/ByteUtil.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/pow/PowResult.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/BlockChain.java
+/Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/utils/RocksDBUtil.java

@@ -1,5 +1,6 @@
 package blockchain;
 
+import blockchain.pow.ProofOfWork;
 import blockchain.utils.ByteUtil;
 import blockchain.utils.LogUtil;
 import blockchain.utils.RocksDBUtil;
@@ -40,7 +41,7 @@ public class BlockChain {
     }
 
     /**
-     * <p> 创建区块链 </p>
+     * 创建区块链，没有创世区块的话会创建
      *
      * @return
      */

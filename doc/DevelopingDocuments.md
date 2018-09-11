@@ -29,7 +29,12 @@ POW
 
 - BlockChain类中赠加迭代器内部类，增加遍历打印区块链方法
 
+####2018.9.11
 
-#####参考文档
-https://wangwei.one/categories/blockchain/
+CLI命令行以及sh脚本
+
+- 包简单整理
+- cli命令支持
+- 添加sh脚本使得支持在命令行中运行
+
 
