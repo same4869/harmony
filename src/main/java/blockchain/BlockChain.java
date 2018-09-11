@@ -1,42 +1,56 @@
 package blockchain;
 
-import blockchain.utils.LogUtil;
+import blockchain.utils.RocksDBUtil;
 import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 
-import java.util.LinkedList;
-import java.util.List;
 
 public class BlockChain {
     @Getter
-    private static List<Block> blockList;
+    private String lastBlockHash;
 
-    public BlockChain(List<Block> blockList) {
-        this.blockList = blockList;
+    private BlockChain(String lastBlockHash) {
+        this.lastBlockHash = lastBlockHash;
     }
 
     /**
      * 添加新区块
+     *
      * @param data
      */
-    public static void addBlock(String data) {
-        if (blockList.size() < 1) {
-            LogUtil.d("添加区块失败，因为还没有创世区块");
-            return;
+    public void addBlock(String data) throws Exception {
+        String lastBlockHash = RocksDBUtil.getInstance().getLastBlockHash();
+        if (StringUtils.isBlank(lastBlockHash)) {
+            throw new Exception("Fail to add block into blockchain ! ");
         }
-        Block previousBlock = blockList.get(blockList.size() - 1);
-        blockList.add(Block.newBlock(data, previousBlock.getHash()));
+        this.addBlock(Block.newBlock(data, lastBlockHash));
     }
 
     /**
-     * 创建创世区块
+     * 添加区块
+     *
+     * @param block
      */
-    public static Block newGenesisBlock() {
-        blockList = new LinkedList<>();
-        Block block = Block.newBlock("I am Genesis Block", "0000000000000000");
-//        Block block = new Block(System.currentTimeMillis(), "I am Genesis Block", "0000000000000000", null);
-//        block.setHash();
-        blockList.add(block);
-        return block;
+    public void addBlock(Block block) {
+        RocksDBUtil.getInstance().putLastBlockHash(block.getHash());
+        RocksDBUtil.getInstance().putBlock(block);
+        this.lastBlockHash = block.getHash();
+    }
+
+    /**
+     * <p> 创建区块链 </p>
+     *
+     * @return
+     */
+    public static BlockChain newBlockchain() {
+        String lastBlockHash = RocksDBUtil.getInstance().getLastBlockHash();
+        if (StringUtils.isBlank(lastBlockHash)) {
+            Block genesisBlock = Block.newGenesisBlock();
+            lastBlockHash = genesisBlock.getHash();
+            RocksDBUtil.getInstance().putBlock(genesisBlock);
+            RocksDBUtil.getInstance().putLastBlockHash(lastBlockHash);
+        }
+        return new BlockChain(lastBlockHash);
     }
 
 }

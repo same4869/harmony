@@ -24,22 +24,31 @@ public class BlockchainTest {
 //            LogUtil.d("/////////////////////////////////////");
 //        }
 
-        BlockChain.newGenesisBlock();
+//        BlockChain.newGenesisBlock();
+//
+//        BlockChain.addBlock("Send 1 BTC to Ivan");
+//        BlockChain.addBlock("Send 2 more BTC to Ivan");
+//
+//        for (Block block : BlockChain.getBlockList()) {
+//            LogUtil.d("timestamp:" + block.getTimestamp());
+//            LogUtil.d("prevhash:" + block.getPrevBlockHash());
+//            LogUtil.d("hash:" + block.getHash());
+//            LogUtil.d("data:" + block.getData());
+//            LogUtil.d("nonce:" + block.getNonce());
+//            LogUtil.d("/////////////////////////////////////");
+//
+//            ProofOfWork pow = ProofOfWork.newProofOfWork(block);
+//            LogUtil.d("Pow valid: " + pow.validate() + "\n");
+//        }
 
-        BlockChain.addBlock("Send 1 BTC to Ivan");
-        BlockChain.addBlock("Send 2 more BTC to Ivan");
-
-        for (Block block : BlockChain.getBlockList()) {
-            LogUtil.d("timestamp:" + block.getTimestamp());
-            LogUtil.d("prevhash:" + block.getPrevBlockHash());
-            LogUtil.d("hash:" + block.getHash());
-            LogUtil.d("data:" + block.getData());
-            LogUtil.d("nonce:" + block.getNonce());
-            LogUtil.d("/////////////////////////////////////");
-
-            ProofOfWork pow = ProofOfWork.newProofOfWork(block);
-            LogUtil.d("Pow valid: " + pow.validate() + "\n");
+        BlockChain blockChain = BlockChain.newBlockchain();
+        try {
+            blockChain.addBlock("Send 1 BTC to Ivan");
+            blockChain.addBlock("Send 2 BTC to kkkk");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
     }
 
 }

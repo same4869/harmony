@@ -51,4 +51,8 @@ public class Block {
         block.setNonce(powResult.getNonce());
         return block;
     }
+
+    public static Block newGenesisBlock(){
+        return Block.newBlock("I am Genesis Block", "0000000000000000000000000000000000000000000000000000000000000000");
+    }
 }
