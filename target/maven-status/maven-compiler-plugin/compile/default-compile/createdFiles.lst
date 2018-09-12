@@ -1,3 +1,8 @@
+blockchain/block/BlockChain.class
+blockchain/transaction/TXInput.class
+blockchain/block/BlockChain$BlockchainIterator.class
+blockchain/wallet/WalletUtil$Wallets.class
+blockchain/wallet/WalletUtil.class
+blockchain/block/Block.class
 blockchain/transaction/Transaction.class
 blockchain/transaction/TXOutput.class
-blockchain/transaction/TXInput.class

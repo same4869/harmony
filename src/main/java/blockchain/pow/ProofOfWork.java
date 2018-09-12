@@ -1,6 +1,6 @@
 package blockchain.pow;
 
-import blockchain.Block;
+import blockchain.block.Block;
 import blockchain.utils.ByteUtil;
 import blockchain.utils.LogUtil;
 import org.apache.commons.codec.digest.DigestUtils;

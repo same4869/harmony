@@ -1,6 +1,6 @@
 package blockchain.utils;
 
-import blockchain.Block;
+import blockchain.block.Block;
 import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
 import com.google.common.collect.Maps;

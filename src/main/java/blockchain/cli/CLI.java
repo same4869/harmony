@@ -1,15 +1,21 @@
 package blockchain.cli;
 
-import blockchain.Block;
-import blockchain.BlockChain;
+import blockchain.block.Block;
+import blockchain.block.BlockChain;
 import blockchain.pow.ProofOfWork;
 import blockchain.transaction.TXOutput;
 import blockchain.transaction.Transaction;
+import blockchain.utils.Base58Check;
 import blockchain.utils.LogUtil;
 import blockchain.utils.RocksDBUtil;
+import blockchain.wallet.Wallet;
+import blockchain.wallet.WalletUtil;
 import org.apache.commons.cli.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
+
+import java.util.Arrays;
+import java.util.Set;
 
 /**
  * 命令行解析类
@@ -68,6 +74,12 @@ public class CLI {
                         help();
                     }
                     this.send(sendFrom, sendTo, Integer.valueOf(sendAmount));
+                    break;
+                case "createwallet":
+                    this.createWallet();
+                    break;
+                case "printaddresses":
+                    this.printAddresses();
                     break;
                 case "printchain":
                     this.printChain();
@@ -135,8 +147,18 @@ public class CLI {
      * @param address 钱包地址
      */
     private void getBalance(String address) throws Exception {
+        // 检查钱包地址是否合法
+        try {
+            Base58Check.base58ToBytes(address);
+        } catch (Exception e) {
+            throw new Exception("ERROR: invalid wallet address");
+        }
         BlockChain blockchain = BlockChain.newBlockchain(address);
-        TXOutput[] txOutputs = blockchain.findUTXO(address);
+        // 得到公钥Hash值
+        byte[] versionedPayload = Base58Check.base58ToBytes(address);
+        byte[] pubKeyHash = Arrays.copyOfRange(versionedPayload, 1, versionedPayload.length);
+
+        TXOutput[] txOutputs = blockchain.findUTXO(pubKeyHash);
         int balance = 0;
         if (txOutputs != null && txOutputs.length > 0) {
             for (TXOutput txOutput : txOutputs) {
@@ -158,7 +180,33 @@ public class CLI {
         Transaction transaction = Transaction.newUTXOTransaction(from, to, amount, blockchain);
         blockchain.mineBlock(new Transaction[]{transaction});
         RocksDBUtil.getInstance().closeDB();
-        System.out.println("Success!");
+        LogUtil.d("Success!");
+    }
+
+    /**
+     * 创建钱包
+     *
+     * @throws Exception
+     */
+    private void createWallet() throws Exception {
+        Wallet wallet = WalletUtil.getInstance().createWallet();
+        LogUtil.d("wallet address : " + wallet.getAddress());
+    }
+
+    /**
+     * 打印钱包地址
+     *
+     * @throws Exception
+     */
+    private void printAddresses() throws Exception {
+        Set<String> addresses = WalletUtil.getInstance().getAddresses();
+        if (addresses == null || addresses.isEmpty()) {
+            LogUtil.d("There isn't address");
+            return;
+        }
+        for (String address : addresses) {
+            LogUtil.d("Wallet address: " + address);
+        }
     }
 
 }

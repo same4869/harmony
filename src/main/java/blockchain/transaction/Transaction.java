@@ -1,7 +1,10 @@
 package blockchain.transaction;
 
-import blockchain.BlockChain;
+import blockchain.block.BlockChain;
+import blockchain.utils.BtcAddressUtil;
 import blockchain.utils.SerializeUtil;
+import blockchain.wallet.Wallet;
+import blockchain.wallet.WalletUtil;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +38,19 @@ public class Transaction {
     private TXOutput[] outputs;
 
     /**
+     * 计算交易信息的Hash值
+     *
+     * @return
+     */
+    public byte[] hash() {
+        // 使用序列化的方式对Transaction对象进行深度复制
+        byte[] serializeBytes = SerializeUtil.serialize(this);
+        Transaction copyTx = (Transaction) SerializeUtil.deserialize(serializeBytes);
+        copyTx.setTxId(new byte[]{});
+        return DigestUtils.sha256(SerializeUtil.serialize(copyTx));
+    }
+
+    /**
      * 设置交易ID
      */
     private void setTxId() {
@@ -53,9 +69,9 @@ public class Transaction {
             data = String.format("Reward to '%s'", to);
         }
         // 创建交易输入
-        TXInput txInput = new TXInput(new byte[]{}, -1, data);
+        TXInput txInput = new TXInput(new byte[]{}, -1, null, data.getBytes());
         // 创建交易输出
-        TXOutput txOutput = new TXOutput(SUBSIDY, to);
+        TXOutput txOutput = TXOutput.newTXOutput(SUBSIDY, to);
         // 创建交易
         Transaction tx = new Transaction(null, new TXInput[]{txInput}, new TXOutput[]{txOutput});
         // 设置交易ID
@@ -84,12 +100,16 @@ public class Transaction {
      * @return
      */
     public static Transaction newUTXOTransaction(String from, String to, int amount, BlockChain blockchain) throws Exception {
-        SpendableOutputResult result = blockchain.findSpendableOutputs(from, amount);
+        Wallet senderWallet = WalletUtil.getInstance().getWallet(from);
+        byte[] pubKey = senderWallet.getPublicKey();
+        byte[] pubKeyHash = BtcAddressUtil.ripeMD160Hash(pubKey);
+
+        SpendableOutputResult result = blockchain.findSpendableOutputs(pubKeyHash, amount);
         int accumulated = result.getAccumulated();
         Map<String, int[]> unspentOuts = result.getUnspentOuts();
 
         if (accumulated < amount) {
-            throw new Exception("ERROR: Not enough funds");
+            throw new Exception("ERROR: Not enough funds ! ");
         }
         Iterator<Map.Entry<String, int[]>> iterator = unspentOuts.entrySet().iterator();
 
@@ -97,21 +117,25 @@ public class Transaction {
         while (iterator.hasNext()) {
             Map.Entry<String, int[]> entry = iterator.next();
             String txIdStr = entry.getKey();
-            int[] outIdxs = entry.getValue();
+            int[] outIds = entry.getValue();
             byte[] txId = Hex.decodeHex(txIdStr.toCharArray());
-            for (int outIndex : outIdxs) {
-                txInputs = ArrayUtils.add(txInputs, new TXInput(txId, outIndex, from));
+            for (int outIndex : outIds) {
+                txInputs = ArrayUtils.add(txInputs, new TXInput(txId, outIndex, null, pubKey));
             }
         }
 
         TXOutput[] txOutput = {};
-        txOutput = ArrayUtils.add(txOutput, new TXOutput(amount, to));
+        txOutput = ArrayUtils.add(txOutput, TXOutput.newTXOutput(amount, to));
         if (accumulated > amount) {
-            txOutput = ArrayUtils.add(txOutput, new TXOutput((accumulated - amount), from));
+            txOutput = ArrayUtils.add(txOutput, TXOutput.newTXOutput((accumulated - amount), from));
         }
 
         Transaction newTx = new Transaction(null, txInputs, txOutput);
-        newTx.setTxId();
+        newTx.setTxId(newTx.hash());
+
+        // 进行交易签名
+//        blockchain.signTransaction(newTx, senderWallet.getPrivateKey());
+
         return newTx;
     }
 

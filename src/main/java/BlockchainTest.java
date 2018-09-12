@@ -1,4 +1,5 @@
-import blockchain.BlockChain;
+import blockchain.utils.LogUtil;
+import blockchain.wallet.Wallet;
 
 public class BlockchainTest {
 
@@ -48,6 +49,13 @@ public class BlockchainTest {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
+
+        Wallet wallet = new Wallet();
+        try {
+            LogUtil.d("address --> " + wallet.getAddress());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
