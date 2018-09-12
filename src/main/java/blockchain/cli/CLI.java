@@ -2,6 +2,7 @@ package blockchain.cli;
 
 import blockchain.block.Block;
 import blockchain.block.BlockChain;
+import blockchain.block.BlockchainIterator;
 import blockchain.pow.ProofOfWork;
 import blockchain.transaction.TXOutput;
 import blockchain.transaction.Transaction;
@@ -132,7 +133,7 @@ public class CLI {
      */
     private void printChain() throws Exception {
         BlockChain blockchain = BlockChain.initBlockchainFromDB();
-        for (BlockChain.BlockchainIterator iterator = blockchain.getBlockchainIterator(); iterator.hashNext(); ) {
+        for (BlockchainIterator iterator = blockchain.getBlockchainIterator(); iterator.hashNext(); ) {
             Block block = iterator.next();
             if (block != null) {
                 boolean validate = ProofOfWork.newProofOfWork(block).validate();

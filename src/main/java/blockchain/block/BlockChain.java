@@ -12,7 +12,9 @@ import lombok.Getter;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,6 +33,12 @@ public class BlockChain {
      * @param transactions
      */
     public void mineBlock(Transaction[] transactions) throws Exception {
+        // 挖矿前，先验证交易记录
+        for (Transaction tx : transactions) {
+            if (!this.verifyTransactions(tx)) {
+                throw new Exception("ERROR: Fail to mine block ! Invalid transaction ! ");
+            }
+        }
         String lastBlockHash = RocksDBUtil.getInstance().getLastBlockHash();
         if (lastBlockHash == null) {
             throw new Exception("ERROR: Fail to get last block hash ! ");
@@ -210,71 +218,52 @@ public class BlockChain {
         return new SpendableOutputResult(accumulated, unspentOuts);
     }
 
+    /**
+     * 依据交易ID查询交易信息
+     *
+     * @param txId 交易ID
+     * @return
+     */
+    private Transaction findTransaction(byte[] txId) throws Exception {
+        for (BlockchainIterator iterator = this.getBlockchainIterator(); iterator.hashNext(); ) {
+            Block block = iterator.next();
+            for (Transaction tx : block.getTransactions()) {
+                if (Arrays.equals(tx.getTxId(), txId)) {
+                    return tx;
+                }
+            }
+        }
+        throw new Exception("ERROR: Can not found tx by txId ! ");
+    }
 
     /**
-     * 区块链迭代器,倒序遍历
+     * 进行交易签名
+     *
+     * @param tx         交易数据
+     * @param privateKey 私钥
      */
-    public class BlockchainIterator {
-        private String currentBlockHash; //当前迭代器指向区块的hash
-
-        public BlockchainIterator(String currentBlockHash) {
-            this.currentBlockHash = currentBlockHash;
+    public void signTransaction(Transaction tx, BCECPrivateKey privateKey) throws Exception {
+        // 先来找到这笔新的交易中，交易输入所引用的前面的多笔交易的数据
+        Map<String, Transaction> prevTxMap = new HashMap<>();
+        for (TXInput txInput : tx.getInputs()) {
+            Transaction prevTx = this.findTransaction(txInput.getTxId());
+            prevTxMap.put(Hex.encodeHexString(txInput.getTxId()), prevTx);
         }
+        tx.sign(privateKey, prevTxMap);
+    }
 
-        /**
-         * 是否有下一个区块
-         *
-         * @return
-         */
-        public boolean hashNext() {
-            if (StringUtils.isBlank(currentBlockHash) || currentBlockHash.equals(ByteUtil.ZERO_HASH)) {
-                return false;
-            }
-            Block lastBlock = RocksDBUtil.getInstance().getBlock(currentBlockHash);
-            if (lastBlock == null) {
-                return false;
-            }
-            // 创世区块直接放行
-            if (ByteUtil.ZERO_HASH.equals(lastBlock.getPrevBlockHash())) {
-                return true;
-            }
-            return RocksDBUtil.getInstance().getBlock(lastBlock.getPrevBlockHash()) != null;
+    /**
+     * 交易签名验证
+     *
+     * @param tx
+     */
+    private boolean verifyTransactions(Transaction tx) throws Exception {
+        Map<String, Transaction> prevTx = new HashMap<>();
+        for (TXInput txInput : tx.getInputs()) {
+            Transaction transaction = this.findTransaction(txInput.getTxId());
+            prevTx.put(Hex.encodeHexString(txInput.getTxId()), transaction);
         }
-
-
-        /**
-         * 返回区块
-         *
-         * @return
-         */
-        public Block next() throws Exception {
-            Block currentBlock = RocksDBUtil.getInstance().getBlock(currentBlockHash);
-            if (currentBlock != null) {
-                this.currentBlockHash = currentBlock.getPrevBlockHash();
-                return currentBlock;
-            }
-            return null;
-        }
-
-        /**
-         * 遍历打印整条区块链信息
-         *
-         * @param blockChain
-         */
-        public void printBlockChain(BlockChain blockChain) {
-            for (BlockChain.BlockchainIterator iterator = blockChain.getBlockchainIterator(); iterator.hashNext(); ) {
-                Block block = null;
-                try {
-                    block = iterator.next();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (block != null) {
-                    boolean validate = ProofOfWork.newProofOfWork(block).validate();
-                    LogUtil.d(block.toString() + ", validate = " + validate);
-                }
-            }
-        }
+        return tx.verify(prevTx);
     }
 
 }
