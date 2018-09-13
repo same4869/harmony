@@ -2,11 +2,11 @@ package blockchain.block;
 
 import blockchain.pow.PowResult;
 import blockchain.pow.ProofOfWork;
+import blockchain.transaction.MerkleTree;
 import blockchain.transaction.Transaction;
 import blockchain.utils.ByteUtil;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.commons.codec.digest.DigestUtils;
 
 
 /**
@@ -54,6 +54,6 @@ public class Block {
         for (int i = 0; i < this.getTransactions().length; i++) {
             txIdArrays[i] = this.getTransactions()[i].hash();
         }
-        return DigestUtils.sha256(ByteUtil.merge(txIdArrays));
+        return new MerkleTree(txIdArrays).getRoot().getHash();
     }
 }
