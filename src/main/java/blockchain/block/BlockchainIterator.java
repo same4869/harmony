@@ -42,7 +42,7 @@ public class BlockchainIterator {
      *
      * @return
      */
-    public Block next() throws Exception {
+    public Block next(){
         Block currentBlock = RocksDBUtil.getInstance().getBlock(currentBlockHash);
         if (currentBlock != null) {
             this.currentBlockHash = currentBlock.getPrevBlockHash();

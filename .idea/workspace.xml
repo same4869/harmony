@@ -2,27 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05b82a91-a00a-43da-bcfe-9d9b7a96940b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/blockchain/block/BlockchainIterator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/000036.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/000039.sst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536816839249655" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536816855043439" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536816877410518" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536817036806246" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536817134643446" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536817201759576" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536817459270661" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536817522958901" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536817550371101" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536817559236099" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536817587807753" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blockchain_harmony.db/MANIFEST-000035" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/blockchain/transaction/UTXOSet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/blockchain/transaction/UTXOSet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/000053.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/000004.sst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/000025.sst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/000040.sst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/000046.sst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/000069.sst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/000072.sst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/000077.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain_harmony.db/CURRENT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/IDENTITY" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain_harmony.db/IDENTITY" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain_harmony.db/LOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/MANIFEST-000052" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/OPTIONS-000050" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/OPTIONS-000055" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536738487833912" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536738744899866" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536738769410088" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536738776457145" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536738779141432" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536738838058209" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536738874426559" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536738959109149" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536738993874304" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536739021395106" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536739508943485" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536739575681964" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536739596984343" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536739604016600" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536739662694879" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536739845437234" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536740430564080" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536742012843506" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536742045695739" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536742105526219" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536742143312034" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536742269856435" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536742451695933" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/LOG.old.1536742571465210" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/MANIFEST-000076" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/OPTIONS-000076" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain_harmony.db/OPTIONS-000035" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain_harmony.db/OPTIONS-000079" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain_harmony.db/OPTIONS-000038" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/blockchain/block/BlockChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/blockchain/block/BlockChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/blockchain/block/BlockchainIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/blockchain/block/BlockchainIterator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/blockchain/cli/CLI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/blockchain/cli/CLI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/blockchain/pow/ProofOfWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/blockchain/pow/ProofOfWork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/blockchain/transaction/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/blockchain/transaction/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/blockchain/block/BlockChain$BlockchainIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/blockchain/block/BlockChain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blockchain/block/BlockChain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/blockchain/block/BlockchainIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blockchain/block/BlockchainIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/blockchain/cli/CLI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blockchain/cli/CLI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/blockchain/pow/ProofOfWork.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blockchain/pow/ProofOfWork.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/blockchain/transaction/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blockchain/transaction/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/blockchain/utils/RocksDBUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/blockchain/utils/RocksDBUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/harmony-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/harmony-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/harmony-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/harmony-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet.dat" beforeDir="false" afterPath="$PROJECT_DIR$/wallet.dat" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,32 +83,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CLI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/cli/CLI.java">
+      <file leaf-file-name="UTXOSet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/transaction/UTXOSet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="134" column="66" lean-forward="true" selection-start-line="134" selection-start-column="66" selection-end-line="134" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Signature.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/security/Signature.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="655" selection-start-line="655" selection-end-line="655" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ByteUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/utils/ByteUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="71" selection-start-line="71" selection-end-line="71" />
+            <state relative-caret-position="315">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -71,8 +98,32 @@
       <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/transaction/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1029">
-              <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+            <state relative-caret-position="377">
+              <caret line="185" column="38" selection-start-line="185" selection-start-column="38" selection-end-line="185" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RocksDBUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="76" column="7" lean-forward="true" selection-start-line="76" selection-start-column="7" selection-end-line="76" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CLI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/cli/CLI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="189" column="85" selection-start-line="189" selection-start-column="85" selection-end-line="189" selection-end-column="85" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,21 +134,10 @@
       <file leaf-file-name="BlockChain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/block/BlockChain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="265" selection-start-line="265" selection-end-line="265" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlockchainIterator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/block/BlockchainIterator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+            <state relative-caret-position="182">
+              <caret line="258" column="30" lean-forward="true" selection-start-line="258" selection-start-column="30" selection-end-line="258" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#399#400#0" expanded="true" />
-                <element signature="e#463#464#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,43 +147,22 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="298">
-                <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+              <first_editor relative-caret-position="358">
+                <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SerializeUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/utils/SerializeUtil.java">
+      <file leaf-file-name="BlockchainIterator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/block/BlockchainIterator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/block/Block.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="38" column="45" lean-forward="true" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProofOfWork.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/pow/ProofOfWork.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -169,7 +188,6 @@
         <option value="$PROJECT_DIR$/src/main/java/blockchain/ProofOfWork.java" />
         <option value="$PROJECT_DIR$/src/main/java/blockchain/utils/SerializeUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/blockchain/utils/ByteUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/blockchain/cli/Main.java" />
         <option value="$PROJECT_DIR$/tools/blockchain.sh" />
@@ -187,11 +205,13 @@
         <option value="$PROJECT_DIR$/src/main/java/blockchain/wallet/WalletUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/blockchain/utils/Base58Check.java" />
         <option value="$PROJECT_DIR$/src/main/java/blockchain/block/Block.java" />
-        <option value="$PROJECT_DIR$/src/main/java/blockchain/block/BlockChain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/blockchain/block/BlockchainIterator.java" />
         <option value="$PROJECT_DIR$/src/main/java/blockchain/pow/ProofOfWork.java" />
-        <option value="$PROJECT_DIR$/src/main/java/blockchain/cli/CLI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/blockchain/block/BlockchainIterator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/blockchain/transaction/UTXOSet.java" />
         <option value="$PROJECT_DIR$/src/main/java/blockchain/transaction/Transaction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/blockchain/cli/CLI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/blockchain/block/BlockChain.java" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -236,6 +256,59 @@
             <path>
               <item name="harmony" type="b2602c69:ProjectViewProjectNode" />
               <item name="harmony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="harmony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harmony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="harmony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harmony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="harmony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harmony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blockchain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="harmony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harmony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blockchain" type="462c0819:PsiDirectoryNode" />
+              <item name="block" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="harmony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harmony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blockchain" type="462c0819:PsiDirectoryNode" />
+              <item name="transaction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="harmony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harmony" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="blockchain" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="harmony" type="b2602c69:ProjectViewProjectNode" />
+              <item name="harmony" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -247,6 +320,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="Transaction.&#9;FILE&#9;file:///Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/transaction/Transaction.java&#10;CLI&#9;FILE&#9;file:///Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/cli/CLI.java&#10;Block&#9;FILE&#9;file:///Users/wangxun/Documents/git_work_wx/harmony/src/main/java/blockchain/block/BlockChain.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -351,12 +425,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536559843066</updated>
-      <workItem from="1536559844810" duration="41892000" />
+      <workItem from="1536559844810" duration="46508000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41892000" />
+    <option name="totallyTimeSpent" value="46508000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -412,7 +486,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java</url>
-          <line>127</line>
+          <line>158</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -430,19 +504,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java</url>
-          <line>70</line>
+          <line>82</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java</url>
-          <line>75</line>
+          <line>87</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java</url>
-          <line>114</line>
+          <line>145</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
@@ -507,18 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="127" column="16" selection-start-line="127" selection-start-column="16" selection-end-line="127" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3231#3232#0" expanded="true" />
-            <element signature="e#3316#3317#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -699,32 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/block/BlockchainIterator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/pow/ProofOfWork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/cli/CLI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="134" column="66" lean-forward="true" selection-start-line="134" selection-start-column="66" selection-end-line="134" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -735,17 +775,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/block/BlockChain.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/block/BlockchainIterator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="265" selection-start-line="265" selection-end-line="265" />
+        <state relative-caret-position="135">
+          <caret line="44" column="23" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/transaction/UTXOSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/transaction/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1029">
-          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+        <state relative-caret-position="377">
+          <caret line="185" column="38" selection-start-line="185" selection-start-column="38" selection-end-line="185" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="305" lean-forward="true" selection-start-line="305" selection-end-line="305" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/utils/RocksDBUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="76" column="7" lean-forward="true" selection-start-line="76" selection-start-column="7" selection-end-line="76" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/cli/CLI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="189" column="85" selection-start-line="189" selection-start-column="85" selection-end-line="189" selection-end-column="85" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/blockchain/block/BlockChain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="258" column="30" lean-forward="true" selection-start-line="258" selection-start-column="30" selection-end-line="258" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -755,8 +845,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="298">
-            <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+          <first_editor relative-caret-position="358">
+            <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
           </first_editor>
           <second_editor />
         </state>

@@ -1,4 +1,5 @@
 blockchain/block/BlockChain.class
+blockchain/transaction/UTXOSet.class
 blockchain/transaction/TXInput.class
 blockchain/wallet/WalletUtil$Wallets.class
 blockchain/block/BlockchainIterator.class

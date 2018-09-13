@@ -60,4 +60,8 @@ UTXO,余额与转账
 
 - Transaction，BlockChain中加入签名与验证方法
 
+#### 2018.9.13
 
+UTXO池，挖矿奖励
+
+- 新增UTXOSet类，获取UTXO等逻辑修改

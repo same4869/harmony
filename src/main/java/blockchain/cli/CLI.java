@@ -6,6 +6,7 @@ import blockchain.block.BlockchainIterator;
 import blockchain.pow.ProofOfWork;
 import blockchain.transaction.TXOutput;
 import blockchain.transaction.Transaction;
+import blockchain.transaction.UTXOSet;
 import blockchain.utils.Base58Check;
 import blockchain.utils.LogUtil;
 import blockchain.utils.RocksDBUtil;
@@ -103,10 +104,13 @@ public class CLI {
      *
      * @param address
      */
-    private void createBlockchain(String address) throws Exception {
-        BlockChain.newBlockchain(address);
+    private void createBlockchain(String address) {
+        BlockChain blockchain = BlockChain.newBlockchain(address);
+        UTXOSet utxoSet = new UTXOSet(blockchain);
+        utxoSet.reIndex();
         LogUtil.d("Done ! ");
     }
+
 
     /**
      * 验证入参
@@ -159,7 +163,9 @@ public class CLI {
         byte[] versionedPayload = Base58Check.base58ToBytes(address);
         byte[] pubKeyHash = Arrays.copyOfRange(versionedPayload, 1, versionedPayload.length);
 
-        TXOutput[] txOutputs = blockchain.findUTXO(pubKeyHash);
+        UTXOSet utxoSet = new UTXOSet(blockchain);
+
+        TXOutput[] txOutputs = utxoSet.findUTXOs(pubKeyHash);
         int balance = 0;
         if (txOutputs != null && txOutputs.length > 0) {
             for (TXOutput txOutput : txOutputs) {
@@ -179,7 +185,10 @@ public class CLI {
     private void send(String from, String to, int amount) throws Exception {
         BlockChain blockchain = BlockChain.newBlockchain(from);
         Transaction transaction = Transaction.newUTXOTransaction(from, to, amount, blockchain);
-        blockchain.mineBlock(new Transaction[]{transaction});
+        // 奖励
+        Transaction rewardTx = Transaction.newCoinbaseTX(from, "");
+        Block newBlock = blockchain.mineBlock(new Transaction[]{transaction, rewardTx});
+        new UTXOSet(blockchain).update(newBlock);
         RocksDBUtil.getInstance().closeDB();
         LogUtil.d("Success!");
     }
